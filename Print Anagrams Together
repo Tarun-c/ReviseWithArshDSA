@@ -1,0 +1,23 @@
+Ques: Print Anagrams Together LINK --> https://practice.geeksforgeeks.org/problems/print-anagrams-together
+
+Solution (In GFG): 
+
+class Solution{
+  public:
+    vector<vector<string> > Anagrams(vector<string>& string_list) {
+        //code here
+        vector<vector<string>> ret;
+        map<string,vector<string>> map_store;
+        for(int i=0;i<string_list.size();i++){
+            string str = string_list[i];
+            sort(str.begin(),str.end());
+            map_store[str].push_back(string_list[i]);
+        }
+        for(auto it = map_store.begin();it!=map_store.end();it++){
+            vector<string> temp;
+            temp = it->second;
+            ret.push_back(temp);
+        }
+        return ret;
+    }
+};
